@@ -97,7 +97,7 @@ trait ShamblesTrait
     public static function generateHash()
     {
         $model = get_class();
-        $hashSize = property_exists($model, 'hashSize') ? $model::$hashSize : config('shambles.hash_size', static::defaultHashSize);
+        $hashSize = property_exists($model, 'hashSize') ? $model::$hashSize : config('shambles.hash_size', static::$defaultHashSize);
         return bin2hex(openssl_random_pseudo_bytes($hashSize, $crypto));
     }
 }
