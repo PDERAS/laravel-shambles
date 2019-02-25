@@ -16,10 +16,9 @@ This package is designed for Laravel that adds a hash value to a model into the 
 
 ## Installation
 #### Requirements
-To use this package, the following requiremenst must be met:
+To use this package, the following requirements must be met:
 - [Composer](https://getcomposer.org/)
 - [Laravel](https://laravel.com/) (5.3+)
-- [Carbon](https://carbon.nesbot.com/)
 
 #### Instructions
 Once you have succesfully required the package, (v5.3 only) you must register the service provider in your config/app.php file.
@@ -28,8 +27,31 @@ PDERAS\Shambles\ShamblesServiceProvider::class,
 ```
 
 ## Usage
+If you would like a config file for shambles to define a specific hash size.
+```
+php artisan vendor:publish --provider="PDERAS\Shambles\ShamblesServiceProvider"
+```
+
 ### Back End
 To use shambles you must make add a column 'hash' to the desired models in the database.
+
+e.i. in a migration somewhere...
+```
+class MyMigration extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('my_table', function(Blueprint $table) {
+            $table->string('hash')->unique();
+        });
+    }
+}
+```
 
 Then all you have to do is add the Trait to the models
 
@@ -44,5 +66,20 @@ class MyModel extends Model
 }
 ```
 
+Now whenever you create a new model it will auto add a hash to it. You can then use that hash for lookups and obscure the models auto-incrementing id.
+
+Get Request ...
+```
+http://localhost/my-model-route/{HASH}
+```
+
+```
+function myModelRouteFn(Request $request, string $hash)
+{
+    ...
+    $my_model = MyModel::findByHashOrFail($hash); // or MyModel::findByHash($hash)
+    ...
+}
+```
 ## License
 This project is covered under the MIT License. Feel free to use it wherever you like.

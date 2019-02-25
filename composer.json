@@ -4,7 +4,7 @@
     "keywords": ["hash", "hashing", "shambles", "laravel"],
     "homepage": "https://github.com/PDERAS/laravel-shambles",
     "type": "library",
-    "license": "ISC",
+    "license": "MIT",
     "authors": [
         {
             "name": "Cody Moorhouse",
