@@ -1,0 +1,40 @@
+{
+    "name": "pderas/shambles",
+    "description": "A hashing library that will generate a hashes for your laravel models.",
+    "keywords": ["hash", "hashing", "shambles", "laravel"],
+    "homepage": "https://github.com/PDERAS/laravel-shambles",
+    "type": "library",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Cody Moorhouse",
+            "email": "cody.moorhouse@pderas.com"
+        },
+        {
+            "name": "Reed Jones",
+            "email": "reed.jones@pderas.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/database": "~5.1",
+        "illuminate/support": "~5.1",
+        "illuminate/routing": "~5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PDERAS\\Shambles\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "PDERAS\\Shambles\\ShamblesServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
