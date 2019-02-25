@@ -1,4 +1,4 @@
-# Chronicle
+# Shambles
 ```
 composer require pderas/shambles
 ```
