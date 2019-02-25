@@ -3,9 +3,10 @@ namespace PDERAS\Shambles;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-trait HashingTrait
+trait ShamblesTrait
 {
     private static $defaultHashSize = 36;
+
     /**
      * Automatically add a hash when a new instance of the calling class is made.
      */
