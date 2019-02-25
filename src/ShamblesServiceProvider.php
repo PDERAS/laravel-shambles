@@ -4,7 +4,7 @@ namespace PDERAS\Shambles;
 
 use Illuminate\Support\ServiceProvider;
 
-class ShambleServiceProvider extends ServiceProvider
+class ShamblesServiceProvider extends ServiceProvider
 {
     /**
      * Register bindings in the container.
