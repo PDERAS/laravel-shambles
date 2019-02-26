@@ -1,6 +1,6 @@
 {
     "name": "pderas/shambles",
-    "description": "A hashing library that will generate a hashes for your laravel models.",
+    "description": "A hashing library that will generate and add hashes to your laravel models.",
     "keywords": ["hash", "hashing", "shambles", "laravel"],
     "homepage": "https://github.com/PDERAS/laravel-shambles",
     "type": "library",
