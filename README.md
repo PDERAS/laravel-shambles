@@ -56,7 +56,7 @@ class MyMigration extends Migration
 Then all you have to do is add the Trait to the models
 
 ```
-import PDERAS\Shambles\ShamblesTrait;
+use PDERAS\Shambles\ShamblesTrait;
 
 class MyModel extends Model
 {
