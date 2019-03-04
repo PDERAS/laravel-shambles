@@ -22,7 +22,7 @@ trait ShamblesTrait
      *
      * @param array $attributes
      *
-     * @return Model
+     * @return $this
      */
     public static function create(array $attributes = [])
     {
@@ -37,7 +37,7 @@ trait ShamblesTrait
      *
      * @param array $attributes
      *
-     * @return Model
+     * @return $this
      */
     public static function findByHash(string $hash)
     {
@@ -49,7 +49,7 @@ trait ShamblesTrait
      *
      * @param array $attributes
      *
-     * @return Model
+     * @return $this
      */
     public static function findByHashOrFail(string $hash)
     {
@@ -64,7 +64,7 @@ trait ShamblesTrait
      *
      * @param array $attributes
      *
-     * @return Model
+     * @return $this
      */
     public static function forceCreate(array $attributes = [])
     {
@@ -79,7 +79,7 @@ trait ShamblesTrait
      *
      * @param array $attributes
      *
-     * @return Model
+     * @return $this
      */
     public static function make(array $attributes = [])
     {
