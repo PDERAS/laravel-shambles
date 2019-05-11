@@ -62,6 +62,9 @@ class MyModel extends Model
 {
     use ShamblesTrait;
 
+    $defaultHashSize = 36;      // hash length can be set on a per model basis
+    $defaultRouteKey = 'hash';  // laravel default uses 'id' 
+
     ...
 }
 ```
@@ -74,12 +77,14 @@ http://localhost/my-model-route/{HASH}
 ```
 
 ```
-function myModelRouteFn(Request $request, string $hash)
+function myModelRouteFn(Request $request, MyModel $my_model)
 {
     ...
-    $my_model = MyModel::findByHashOrFail($hash); // or MyModel::findByHash($hash)
+    $my_model->update(...);
     ...
 }
 ```
+
+
 ## License
 This project is covered under the MIT License. Feel free to use it wherever you like.
