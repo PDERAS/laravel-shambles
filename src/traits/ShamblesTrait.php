@@ -5,7 +5,19 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 trait ShamblesTrait
 {
-    private static $defaultHashSize = 36;
+    /**
+     *  The default hash size length to use.
+     * 
+     * @var int
+     */
+    protected static $defaultHashSize = 36;
+
+    /**
+     *  The default route key to use.
+     * 
+     * @var int
+     */
+    protected static $defaultRouteKey = 'hash';
 
     /**
      * Automatically add a hash when a new instance of the calling class is made.
@@ -17,6 +29,17 @@ trait ShamblesTrait
             $this->hash = self::generateHash();
         }
     }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return config('shambles.route_key', static::$defaultRouteKey);
+    }
+
     /**
      * Save a new model and return the instance.
      *

@@ -27,7 +27,7 @@ PDERAS\Shambles\ShamblesServiceProvider::class,
 ```
 
 ## Usage
-If you would like a config file for shambles to define a specific hash size.
+If you would like a config file for shambles to define defaults for all models.
 ```
 php artisan vendor:publish --provider="PDERAS\Shambles\ShamblesServiceProvider"
 ```
@@ -62,6 +62,9 @@ class MyModel extends Model
 {
     use ShamblesTrait;
 
+    $defaultHashSize = 36;      // hash length can be set on a per model basis
+    $defaultRouteKey = 'hash';  // route key can be set on a per model basis (laravel default is 'id', shambles default is 'hash') 
+
     ...
 }
 ```
@@ -74,12 +77,14 @@ http://localhost/my-model-route/{HASH}
 ```
 
 ```
-function myModelRouteFn(Request $request, string $hash)
+function myModelRouteFn(Request $request, MyModel $my_model)
 {
     ...
-    $my_model = MyModel::findByHashOrFail($hash); // or MyModel::findByHash($hash)
+    $my_model->update(...);
     ...
 }
 ```
+
+
 ## License
 This project is covered under the MIT License. Feel free to use it wherever you like.

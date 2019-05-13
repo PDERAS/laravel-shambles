@@ -9,5 +9,15 @@ return [
     | Here you can define how many characters hash is for your models.
     | (default = 36)
     */
-    'hash_size'  =>  36
+    'hash_size'  =>  36,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route Key
+    |--------------------------------------------------------------------------
+    |
+    | Here you specify the route key to use.
+    | (default = 'hash')
+    */
+    'route_key'  =>  'hash',
 ];
