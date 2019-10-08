@@ -7,27 +7,33 @@ trait ShamblesTrait
 {
     /**
      *  The default hash size length to use.
-     * 
+     *
      * @var int
      */
     protected static $defaultHashSize = 36;
 
     /**
      *  The default route key to use.
-     * 
+     *
      * @var int
      */
     protected static $defaultRouteKey = 'hash';
 
     /**
      * Automatically add a hash when a new instance of the calling class is made.
+     *
+     * @param array [$attributes=[]]
+     *
+     * @return $this
      */
-    public function __construct(array $attributes = array())
+    public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
         if (!$this->hash) {
             $this->hash = self::generateHash();
         }
+
+        return $this;
     }
 
     /**
@@ -43,9 +49,9 @@ trait ShamblesTrait
     /**
      * Save a new model and return the instance.
      *
-     * @param array $attributes
+     * @param array [$attributes=[]]
      *
-     * @return $this
+     * @return static
      */
     public static function create(array $attributes = [])
     {
@@ -55,24 +61,26 @@ trait ShamblesTrait
         $model = static::query()->create($attributes);
         return $model;
     }
+
     /**
      * Gets the model associated to the hash.
      *
-     * @param array $attributes
+     * @param string $hash
      *
-     * @return $this
+     * @return static
      */
     public static function findByHash(string $hash)
     {
         $model = static::query()->where('hash', $hash)->first();
         return $model;
     }
+
     /**
      * Gets the model associated to the hash and fails otherwise.
      *
-     * @param array $attributes
+     * @param string $hash
      *
-     * @return $this
+     * @return static
      */
     public static function findByHashOrFail(string $hash)
     {
@@ -82,12 +90,13 @@ trait ShamblesTrait
         }
         return $model;
     }
+
     /**
      * Save a new model and return the instance. Allow mass-assignment.
      *
-     * @param array $attributes
+     * @param array [$attributes=[]]
      *
-     * @return $this
+     * @return static
      */
     public static function forceCreate(array $attributes = [])
     {
@@ -97,12 +106,13 @@ trait ShamblesTrait
         $model = static::query()->forceCreate($attributes);
         return $model;
     }
+
     /**
      * Create and return an un-saved model instance.
      *
-     * @param array $attributes
+     * @param array [$attributes=[]]
      *
-     * @return $this
+     * @return static
      */
     public static function make(array $attributes = [])
     {
@@ -112,6 +122,21 @@ trait ShamblesTrait
         $model = static::query()->make($attributes);
         return $model;
     }
+
+    /**
+     * Clone the model into a new, non-existing instance.
+     *
+     * @param array|null [$except=null]
+     *
+     * @return static
+     */
+    public function replicate(array $except = null)
+    {
+        $new = parent::replicate($except);
+        $new->hash = self::generateHash();
+        return $new;
+    }
+
     /**
      * Generates a hash from the given attributes.
      *
