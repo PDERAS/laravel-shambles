@@ -22,13 +22,13 @@ To use this package, the following requirements must be met:
 
 #### Instructions
 Once you have succesfully required the package, (v5.3 only) you must register the service provider in your config/app.php file.
-```
+```php
 PDERAS\Shambles\ShamblesServiceProvider::class,
 ```
 
 ## Usage
 If you would like a config file for shambles to define defaults for all models.
-```
+```bash
 php artisan vendor:publish --provider="PDERAS\Shambles\ShamblesServiceProvider"
 ```
 
@@ -36,7 +36,7 @@ php artisan vendor:publish --provider="PDERAS\Shambles\ShamblesServiceProvider"
 To use shambles you must make add a column 'hash' to the desired models in the database.
 
 e.i. in a migration somewhere...
-```
+```php
 class MyMigration extends Migration
 {
     /**
@@ -55,8 +55,8 @@ class MyMigration extends Migration
 
 Then all you have to do is add the Trait to the models
 
-```
-use PDERAS\Shambles\ShamblesTrait;
+```php
+use PDERAS\Shambles\Traits\ShamblesTrait;
 
 class MyModel extends Model
 {
@@ -76,7 +76,7 @@ Get Request ...
 http://localhost/my-model-route/{HASH}
 ```
 
-```
+```php
 function myModelRouteFn(Request $request, MyModel $my_model)
 {
     ...
@@ -84,7 +84,6 @@ function myModelRouteFn(Request $request, MyModel $my_model)
     ...
 }
 ```
-
 
 ## License
 This project is covered under the MIT License. Feel free to use it wherever you like.
