@@ -56,7 +56,7 @@ class MyMigration extends Migration
 Then all you have to do is add the Trait to the models
 
 ```php
-use PDERAS\Shambles\Traits\ShamblesTrait;
+use Pderas\Shambles\Traits\ShamblesTrait;
 
 class MyModel extends Model
 {
