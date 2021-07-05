@@ -1,6 +1,6 @@
 <?php
 
-namespace PDERAS\Shambles;
+namespace Pderas\Shambles;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace PDERAS\Shambles\Traits;
+namespace Pderas\Shambles\Traits;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 

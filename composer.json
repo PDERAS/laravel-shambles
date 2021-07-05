@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PDERAS\\Shambles\\": "src/"
+            "Pderas\\Shambles\\": "src/"
         }
     },
     "extra": {
@@ -32,7 +32,7 @@
         },
         "laravel": {
             "providers": [
-                "PDERAS\\Shambles\\ShamblesServiceProvider"
+                "Pderas\\Shambles\\ShamblesServiceProvider"
             ]
         }
     },
