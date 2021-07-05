@@ -23,13 +23,13 @@ To use this package, the following requirements must be met:
 #### Instructions
 Once you have succesfully required the package, (v5.3 only) you must register the service provider in your config/app.php file.
 ```php
-PDERAS\Shambles\ShamblesServiceProvider::class,
+Pderas\Shambles\ShamblesServiceProvider::class,
 ```
 
 ## Usage
 If you would like a config file for shambles to define defaults for all models.
 ```bash
-php artisan vendor:publish --provider="PDERAS\Shambles\ShamblesServiceProvider"
+php artisan vendor:publish --provider="Pderas\Shambles\ShamblesServiceProvider"
 ```
 
 ### Back End
