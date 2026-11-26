@@ -28,5 +28,3 @@ class ShamblesServiceProvider extends ServiceProvider
         ]);
     }
 }
-
-?>
